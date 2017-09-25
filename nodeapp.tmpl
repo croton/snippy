@@ -1,0 +1,10 @@
+// ?1
+var cmdl=require('./utils');
+
+if (cmdl.args()==0) {
+  console.log('Usage: ?1 ');
+  process.exit(1);
+}
+
+var fn=cmdl.arg(1);
+console.log('You entered '+fn);
