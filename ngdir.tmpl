@@ -1,0 +1,24 @@
+angular.module('?1', []).directive('?1Component', [?1Component]);
+
+function ?1Ctrl() {
+  var ctrl = this;
+  ctrl.$onInit = function() {
+    console.log('?1 Controller init');
+  };
+  ctrl.qry = function() {
+    console.log('ctrl.qry()');
+  };
+}
+
+function ?1Component() {
+  return {
+    restrict: 'E',
+    scope: {},
+    bindToController: {
+      id: '<'
+    },
+    controller: [?1Ctrl],
+    controllerAs: 'ctrl',
+    template: '<button id="gobtn" ng-click="ctrl.qry()">Go</button>'
+  };
+}
