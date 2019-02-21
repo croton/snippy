@@ -1,0 +1,14 @@
+/* ?1 -- A filter for ... */
+parse arg options
+
+SIGNAL ON NOTREADY NAME programEnd
+SIGNAL ON ERROR    NAME programEnd
+do forever
+  parse pull data
+  if data='' then say 'blank!'
+  else            say '>' data
+end
+exit
+
+programEnd:
+exit 0

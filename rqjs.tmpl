@@ -1,0 +1,35 @@
+// scriptsDir entryPointJs
+<script data-main="?1/?2" src="?1/require.js"></script>
+
+// A data-main script
+requirejs.config({
+    baseUrl: '?1',
+    paths: {
+      app: '../app'
+    }
+});
+
+// Start the main app logic.
+// requirejs([], function() {});
+requirejs(['jquery', 'canvas', 'app/sub'],
+function($, canvas, sub) {
+  // jQuery, canvas and the app/sub module are all
+  // loaded and can be used here now.
+});
+
+// Defining modules
+define({
+  val: 'some value'
+});
+
+define(function() {
+  return {};
+});
+
+define(['./dependency1', './dependency2'], function(dep1, dep2) {
+  return {};
+  // or return fn
+  // return function() {};
+});
+
+

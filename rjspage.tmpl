@@ -1,0 +1,19 @@
+// Name
+function ?1(props) {
+  return <h1>Hello, {props.name}</h1>;
+}
+
+function App() {
+  return (
+    <div>
+      <?1 name="Alberta" />
+      <?1 name="Quebec" />
+      <?1 name="Nunavut" />
+    </div>
+  );
+}
+
+ReactDOM.render(
+  <App />,
+  document.getElementById('root')
+);

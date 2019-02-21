@@ -1,0 +1,24 @@
+/* ?1 - */
+parse arg pfx params
+select
+  when pfx='h' then call hi
+  when pfx='g' then call bye
+  otherwise call help
+end
+exit
+
+hi: procedure
+  parse arg option
+  'MSG Hi'
+  return
+
+bye: procedure
+  parse arg option
+  'MSG Good bye'
+  return
+
+help: procedure
+  'MSG Options: (H)i (G)oodBye'
+  exit
+
+::requires 'XRoutines.x'

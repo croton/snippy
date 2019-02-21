@@ -1,0 +1,16 @@
+/* ?1 -- Read from the input (STDIN). */
+call trace 'off'
+SIGNAL ON NOTREADY NAME programEnd
+SIGNAL ON ERROR    NAME programEnd
+do forever
+  .output~lineout(parseline(.input~linein))
+end
+exit
+
+-- Return word reversed
+parseline: procedure
+parse arg input
+return input~translate~reverse
+
+programEnd:
+exit 0
