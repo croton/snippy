@@ -1,14 +1,24 @@
 /* ?1 -- A filter for ... */
 parse arg options
-
-SIGNAL ON NOTREADY NAME programEnd
-SIGNAL ON ERROR    NAME programEnd
-do forever
-  parse pull data
-  if data='' then say 'blank!'
-  else            say '>' data
-end
+if .STDIN~chars then call pipe options
+else call help
 exit
 
+pipe: procedure
+  parse arg options
+  SIGNAL ON NOTREADY NAME programEnd
+  SIGNAL ON ERROR    NAME programEnd
+  do forever
+    parse pull data
+    if data='' then iterate
+    else say '>' data
+  end
+  return
+
+help:
+  say '?1 - A filter for ...'
+  say 'usage: ?1'
+  return
+
 programEnd:
-exit 0
+  exit 0
